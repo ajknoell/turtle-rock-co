@@ -22,10 +22,10 @@
                 <span></span>
             </button>
             <ul class="nav-links">
-                <li><a href="#services">Services</a></li>
-                <li><a href="#approach">Approach</a></li>
-                <li><a href="#objective">Objective</a></li>
-                <li><a href="#criteria">Criteria</a></li>
+                <li data-nav-pathway="buyside"><a href="#services">Services</a></li>
+                <li data-nav-pathway="buyside"><a href="#approach">Approach</a></li>
+                <li data-nav-pathway="longterm"><a href="#objective">Objective</a></li>
+                <li data-nav-pathway="longterm"><a href="#criteria">Criteria</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#contact" class="nav-cta">Contact</a></li>
             </ul>
@@ -40,7 +40,7 @@
             <p class="hero-credibility">Led by a private equity deal origination professional who has supported acquisitions up to $40M enterprise value.</p>
             <div class="hero-ctas">
                 <a href="#contact" class="btn btn-primary">Contact</a>
-                <a href="#services" class="btn btn-secondary">Learn More</a>
+                <a href="#pathways" class="btn btn-secondary">Learn More</a>
             </div>
         </div>
     </section>
@@ -49,22 +49,33 @@
     <section id="pathways" class="pathways">
         <div class="container">
             <div class="pathways-grid">
-                <div class="pathway-card">
+                <div class="pathway-card" data-pathway-trigger="buyside">
                     <h2>Buyside Origination</h2>
                     <p>Dedicated deal sourcing and pipeline development for private equity firms and their portfolio companies.</p>
-                    <a href="#services" class="btn btn-primary">Learn More</a>
+                    <a href="#services" class="btn btn-primary pathway-cta">Learn More</a>
                 </div>
-                <div class="pathway-card">
+                <div class="pathway-card" data-pathway-trigger="longterm">
                     <h2>Long-Term Acquisition Vehicle</h2>
                     <p>A permanent ownership approach focused on acquiring and operating one exceptional business for the long term.</p>
-                    <a href="#objective" class="btn btn-primary">Learn More</a>
+                    <a href="#objective" class="btn btn-primary pathway-cta">Learn More</a>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Pathway Switcher Bar -->
+    <div class="pathway-switcher" id="pathway-switcher" style="display: none;">
+        <div class="container">
+            <p class="pathway-switcher-text">
+                <span id="switcher-current"></span>
+                <span class="switcher-divider">|</span>
+                <a href="#" id="switcher-link" class="pathway-switcher-link"></a>
+            </p>
+        </div>
+    </div>
+
     <!-- Section 2: What We Do Today -->
-    <section id="services" class="section section-alt">
+    <section id="services" class="section section-alt" data-pathway="buyside">
         <div class="container container-narrow">
             <h2 class="section-heading">Origination Services for Private Equity Firms &amp; Portfolio Companies</h2>
             <p class="section-body">We build disciplined, repeatable acquisition pipelines for private equity sponsors and their portfolio companies.</p>
@@ -81,7 +92,7 @@
     </section>
 
     <!-- Section 3: How We Work -->
-    <section id="approach" class="section">
+    <section id="approach" class="section" data-pathway="buyside">
         <div class="container">
             <h2 class="section-heading">Approach</h2>
             <p class="section-intro">Our process emphasizes discipline, consistency, and discretion.</p>
@@ -122,7 +133,7 @@
     </section>
 
     <!-- Section 4: Long-Term Objective -->
-    <section id="objective" class="section section-alt">
+    <section id="objective" class="section section-alt" data-pathway="longterm">
         <div class="container container-narrow">
             <h2 class="section-heading">Long-Term Acquisition Vehicle</h2>
             <p class="section-body">In parallel with our origination work, Turtle Rock Co. is building toward the acquisition of a single high-quality business to own and operate for the long term.</p>
@@ -132,7 +143,7 @@
     </section>
 
     <!-- Section 5: Acquisition Criteria -->
-    <section id="criteria" class="section">
+    <section id="criteria" class="section" data-pathway="longterm">
         <div class="container container-narrow">
             <h2 class="section-heading">What We Look For</h2>
             <p class="section-body">We seek one durable, profitable business with the following characteristics:</p>
@@ -151,7 +162,7 @@
     </section>
 
     <!-- Section 6: About -->
-    <section id="about" class="section section-alt">
+    <section id="about" class="section section-alt" data-pathway="shared">
         <div class="container">
             <h2 class="section-heading">About Turtle Rock Co.</h2>
             <div class="about-layout">
@@ -176,7 +187,7 @@
     </section>
 
     <!-- Section 7: Contact -->
-    <section id="contact" class="section section-dark">
+    <section id="contact" class="section section-dark" data-pathway="shared">
         <div class="container container-narrow">
             <h2 class="section-heading section-heading-light">Contact</h2>
             <p class="section-intro section-intro-light">If you represent a private equity firm, portfolio company, or business owner, we welcome a conversation.</p>
