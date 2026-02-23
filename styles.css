@@ -197,35 +197,27 @@ ul, ol {
     background-color: var(--color-navy);
 }
 
-.hero .container {
-    max-width: var(--max-width);
-}
-
 .hero-layout {
-    display: flex;
+    display: grid;
+    grid-template-columns: 320px 1fr;
     align-items: center;
     gap: 3rem;
 }
 
 .hero-visual {
-    flex: 0 0 340px;
-    max-height: 340px;
+    width: 320px;
+    height: 220px;
     overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 .hero-logo-img {
     width: 100%;
-    height: auto;
-    display: block;
-    object-fit: contain;
+    height: 100%;
+    object-fit: cover;
 }
 
 .hero-content {
-    flex: 1;
-    min-width: 0;
+    /* text stays left-aligned by default */
 }
 
 .hero-headline {
@@ -869,15 +861,14 @@ body.pathway-longterm [data-nav-pathway="buyside"] {
 
     /* Hero */
     .hero-layout {
-        flex-direction: column;
+        grid-template-columns: 1fr;
         text-align: center;
         gap: 2rem;
     }
 
     .hero-visual {
-        flex: none;
         width: 250px;
-        max-height: 250px;
+        height: 170px;
         margin: 0 auto;
     }
 
@@ -942,7 +933,7 @@ body.pathway-longterm [data-nav-pathway="buyside"] {
 @media (max-width: 480px) {
     .hero-visual {
         width: 200px;
-        max-height: 200px;
+        height: 140px;
     }
 
     .hero-headline {
