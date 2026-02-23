@@ -197,26 +197,35 @@ ul, ol {
     background-color: var(--color-navy);
 }
 
+.hero .container {
+    max-width: var(--max-width);
+}
+
 .hero-layout {
     display: flex;
     align-items: center;
-    gap: 4rem;
+    gap: 3rem;
 }
 
 .hero-visual {
-    flex-shrink: 0;
-    width: 45%;
-    max-width: 480px;
+    flex: 0 0 340px;
+    max-height: 340px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .hero-logo-img {
     width: 100%;
     height: auto;
     display: block;
+    object-fit: contain;
 }
 
 .hero-content {
     flex: 1;
+    min-width: 0;
 }
 
 .hero-headline {
@@ -866,8 +875,9 @@ body.pathway-longterm [data-nav-pathway="buyside"] {
     }
 
     .hero-visual {
-        width: 60%;
-        max-width: 320px;
+        flex: none;
+        width: 250px;
+        max-height: 250px;
         margin: 0 auto;
     }
 
@@ -931,8 +941,8 @@ body.pathway-longterm [data-nav-pathway="buyside"] {
 
 @media (max-width: 480px) {
     .hero-visual {
-        width: 70%;
-        max-width: 260px;
+        width: 200px;
+        max-height: 200px;
     }
 
     .hero-headline {
