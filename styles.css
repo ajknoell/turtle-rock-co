@@ -194,12 +194,29 @@ ul, ol {
 
 .hero {
     padding: calc(var(--nav-height) + var(--space-2xl)) 0 var(--space-2xl);
-    text-align: center;
-    background: linear-gradient(rgba(15, 27, 45, 0.45), rgba(15, 27, 45, 0.55)), url('hero-bg.jpg') center / cover no-repeat;
+    background-color: var(--color-navy);
 }
 
-.hero .container {
-    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+.hero-layout {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+}
+
+.hero-visual {
+    flex-shrink: 0;
+    width: 45%;
+    max-width: 480px;
+}
+
+.hero-logo-img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.hero-content {
+    flex: 1;
 }
 
 .hero-headline {
@@ -208,15 +225,12 @@ ul, ol {
     color: #ffffff;
     line-height: 1.15;
     letter-spacing: -0.02em;
-    max-width: 800px;
-    margin: 0 auto;
 }
 
 .hero-subheadline {
     font-size: 1.25rem;
     color: #ffffff;
-    max-width: 620px;
-    margin: var(--space-md) auto 0;
+    margin-top: var(--space-md);
     line-height: 1.6;
 }
 
@@ -227,21 +241,11 @@ ul, ol {
     line-height: 1.6;
 }
 
-.hero-positioning {
-    font-size: 0.9375rem;
-    color: rgba(255, 255, 255, 0.75);
-    max-width: 600px;
-    margin: var(--space-sm) auto 0;
-    line-height: 1.6;
-    font-style: italic;
-}
-
 .hero-ctas {
     display: flex;
     gap: 1rem;
-    justify-content: center;
+    justify-content: flex-start;
     margin-top: var(--space-lg);
-    text-shadow: none;
 }
 
 /* ----------------------------------------
@@ -855,6 +859,18 @@ body.pathway-longterm [data-nav-pathway="buyside"] {
     }
 
     /* Hero */
+    .hero-layout {
+        flex-direction: column;
+        text-align: center;
+        gap: 2rem;
+    }
+
+    .hero-visual {
+        width: 60%;
+        max-width: 320px;
+        margin: 0 auto;
+    }
+
     .hero-headline {
         font-size: 2.25rem;
     }
@@ -866,6 +882,7 @@ body.pathway-longterm [data-nav-pathway="buyside"] {
     .hero-ctas {
         flex-direction: column;
         align-items: center;
+        justify-content: center;
         gap: 0.75rem;
     }
 
@@ -913,6 +930,11 @@ body.pathway-longterm [data-nav-pathway="buyside"] {
 }
 
 @media (max-width: 480px) {
+    .hero-visual {
+        width: 70%;
+        max-width: 260px;
+    }
+
     .hero-headline {
         font-size: 1.875rem;
     }
