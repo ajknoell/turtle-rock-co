@@ -55,7 +55,20 @@
       text-decoration: none;
       letter-spacing: 0.02em;
     }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
     .nav-logo img { height: 36px; width: auto; }
+    .nav-logo-text {
+      font-family: 'Lora', serif;
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--stone);
+      letter-spacing: 0.02em;
+      white-space: nowrap;
+    }
     .nav-links { display: flex; gap: 36px; list-style: none; }
     .nav-links a {
       text-decoration: none;
@@ -102,6 +115,18 @@
         radial-gradient(ellipse 60% 50% at 80% 40%, rgba(196,154,120,0.12) 0%, transparent 70%),
         radial-gradient(ellipse 40% 60% at 10% 80%, rgba(92,107,74,0.07) 0%, transparent 60%);
       pointer-events: none;
+    }
+    .hero-mark {
+      position: absolute;
+      right: -40px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 520px;
+      height: auto;
+      opacity: 0.07;
+      pointer-events: none;
+      user-select: none;
+      filter: sepia(1) saturate(1.5) hue-rotate(340deg);
     }
     .hero-inner {
       max-width: 760px;
@@ -489,7 +514,8 @@
 <!-- NAV -->
 <nav id="nav">
   <a class="nav-logo" href="#hero">
-    <img src="Photos/TRC Logo (Transparent).png" alt="Turtle Rock Co."/>
+    <img src="Photos/TRC Logo (Transparent).png" alt=""/>
+    <span class="nav-logo-text">Turtle Rock Co.</span>
   </a>
   <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
     <span></span><span></span><span></span>
@@ -504,6 +530,7 @@
 
 <!-- HERO -->
 <section id="hero" class="hero">
+  <img src="Photos/TRC Logo (Transparent).png" alt="" class="hero-mark" aria-hidden="true"/>
   <div class="hero-inner">
     <div class="hero-eyebrow">Turtle Rock Co.</div>
     <h1>Acquiring great businesses.<br><em>Building for the long term.</em></h1>
