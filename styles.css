@@ -195,21 +195,41 @@ ul, ol {
 .hero {
     padding: calc(var(--nav-height) + var(--space-2xl)) 0 var(--space-2xl);
     background-color: var(--color-navy);
-    background-image:
-        linear-gradient(to right, transparent 30%, var(--color-navy) 65%),
-        url('hero-bg.jpg');
-    background-position: center center;
+    background-image: url('hero-bg.jpg');
     background-size: cover;
-    background-repeat: no-repeat;
-    min-height: 520px;
+    background-position: center;
+    min-height: 680px;
     display: flex;
     align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(15, 27, 45, 0.55) 0%,
+        rgba(15, 27, 45, 0.35) 50%,
+        rgba(15, 27, 45, 0.7) 100%
+    );
+}
+
+.hero-eyebrow {
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: rgba(255, 255, 255, 0.55);
+    margin-bottom: var(--space-sm);
 }
 
 .hero-content {
-    max-width: 550px;
-    margin-left: auto;
-    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+    position: relative;
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
 }
 
 .hero-headline {
@@ -221,25 +241,18 @@ ul, ol {
 }
 
 .hero-subheadline {
-    font-size: 1.25rem;
-    color: #ffffff;
+    font-size: 1.125rem;
+    color: rgba(255, 255, 255, 0.75);
     margin-top: var(--space-md);
     line-height: 1.6;
-}
-
-.hero-credibility {
-    font-size: 0.9375rem;
-    color: rgba(255, 255, 255, 0.85);
-    margin-top: var(--space-md);
-    line-height: 1.6;
+    letter-spacing: 0.01em;
 }
 
 .hero-ctas {
     display: flex;
     gap: 1rem;
-    justify-content: flex-start;
+    justify-content: center;
     margin-top: var(--space-lg);
-    text-shadow: none;
 }
 
 /* ----------------------------------------
@@ -645,19 +658,8 @@ ul, ol {
 
     /* Hero */
     .hero {
-        background-image:
-            linear-gradient(to bottom, transparent 20%, var(--color-navy) 60%),
-            url('hero-bg.jpg');
-        background-position: center top;
-        background-size: cover;
         min-height: auto;
-    }
-
-    .hero-content {
-        max-width: none;
-        margin-left: auto;
-        margin-right: auto;
-        text-align: center;
+        background-position: center;
     }
 
     .hero-headline {
