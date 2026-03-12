@@ -1,161 +1,753 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Turtle Rock Co. — Acquiring One Exceptional Business for the Long Term</title>
-    <meta name="description" content="Turtle Rock Co. is a long-term acquisition vehicle focused on acquiring and operating one exceptional business. We prioritize permanent ownership, founder legacy, and disciplined stewardship.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Turtle Rock Co. — Long-Term Ownership for Exceptional Businesses</title>
+  <meta name="description" content="Turtle Rock Co. is looking to acquire one exceptional business and run it with care — not flip it, not strip it. Long-term stewardship for founders who built something great.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --stone: #2C2A26;
+      --sand: #F5F0E8;
+      --warm-white: #FDFAF5;
+      --terra: #8B6347;
+      --terra-light: #C49A78;
+      --moss: #5C6B4A;
+      --cream: #EDE5D4;
+      --text: #3A3632;
+      --text-muted: #7A7268;
+    }
+
+    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--warm-white);
+      color: var(--text);
+      font-size: 17px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    ul, ol { list-style: none; }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 20px 48px;
+      background: rgba(253,250,245,0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(139,99,71,0.1);
+    }
+    .nav-logo {
+      font-family: 'Lora', serif;
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--stone);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+    }
+    .nav-logo img { height: 36px; width: auto; }
+    .nav-links { display: flex; gap: 36px; list-style: none; }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-muted);
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--terra); }
+
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+      width: 28px;
+      height: 28px;
+    }
+    .nav-toggle span {
+      display: block;
+      width: 20px;
+      height: 1.5px;
+      background-color: var(--stone);
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex; align-items: center;
+      padding: 120px 48px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 80% 40%, rgba(196,154,120,0.12) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 60% at 10% 80%, rgba(92,107,74,0.07) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .hero-inner {
+      max-width: 760px;
+      position: relative;
+    }
+    .hero-eyebrow {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--terra);
+      margin-bottom: 28px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      display: inline-block; width: 32px; height: 1px;
+      background: var(--terra);
+    }
+    h1 {
+      font-family: 'Lora', serif;
+      font-size: clamp(38px, 5.5vw, 66px);
+      line-height: 1.18;
+      font-weight: 600;
+      color: var(--stone);
+      margin-bottom: 28px;
+      letter-spacing: -0.01em;
+    }
+    h1 em {
+      font-style: italic;
+      color: var(--terra);
+    }
+    .hero-sub {
+      font-size: 19px;
+      color: var(--text-muted);
+      line-height: 1.65;
+      max-width: 580px;
+      margin-bottom: 48px;
+      font-weight: 300;
+    }
+    .btn-group { display: flex; gap: 16px; flex-wrap: wrap; }
+    .btn {
+      display: inline-block;
+      padding: 14px 30px;
+      border-radius: 3px;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      text-decoration: none;
+      transition: all 0.22s;
+      cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+      border: 1.5px solid transparent;
+    }
+    .btn-primary {
+      background: var(--stone);
+      color: var(--warm-white);
+      border-color: var(--stone);
+    }
+    .btn-primary:hover {
+      background: var(--terra);
+      border-color: var(--terra);
+    }
+    .btn-outline {
+      background: transparent;
+      color: var(--stone);
+      border-color: rgba(44,42,38,0.3);
+    }
+    .btn-outline:hover {
+      border-color: var(--stone);
+    }
+
+    /* SECTION LAYOUT */
+    section { padding: 100px 48px; }
+    .section-inner { max-width: 900px; margin: 0 auto; }
+    .section-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--terra);
+      margin-bottom: 16px;
+    }
+    h2 {
+      font-family: 'Lora', serif;
+      font-size: clamp(28px, 3.5vw, 42px);
+      line-height: 1.22;
+      font-weight: 600;
+      color: var(--stone);
+      margin-bottom: 28px;
+      letter-spacing: -0.01em;
+    }
+    h2 em { font-style: italic; color: var(--terra); }
+
+    /* DIVIDER */
+    .divider {
+      width: 48px; height: 2px;
+      background: var(--terra-light);
+      margin-bottom: 40px;
+    }
+
+    /* LETTER SECTION */
+    #letter { background: var(--cream); }
+    .letter-body {
+      max-width: 680px;
+      font-size: 18px;
+      line-height: 1.8;
+      color: var(--text);
+    }
+    .letter-body p { margin-bottom: 22px; }
+    .letter-body p:last-child { margin-bottom: 0; }
+    .letter-sig {
+      margin-top: 40px;
+      font-family: 'Lora', serif;
+      font-style: italic;
+      font-size: 20px;
+      color: var(--stone);
+    }
+    .letter-sig span {
+      display: block;
+      font-family: 'DM Sans', sans-serif;
+      font-style: normal;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-top: 6px;
+    }
+
+    /* ABOUT */
+    #about { background: var(--warm-white); }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+      margin-top: 16px;
+    }
+    .about-photo-wrap { position: relative; }
+    .about-photo-wrap img {
+      width: 100%;
+      aspect-ratio: 4/5;
+      object-fit: cover;
+      border-radius: 2px;
+      display: block;
+      filter: sepia(8%) contrast(1.04);
+    }
+    .about-photo-caption {
+      margin-top: 14px;
+      font-size: 12px;
+      color: var(--text-muted);
+      letter-spacing: 0.04em;
+    }
+    .about-content p { margin-bottom: 20px; color: var(--text); }
+    .about-tags {
+      display: flex; flex-wrap: wrap; gap: 10px;
+      margin-top: 32px;
+    }
+    .tag {
+      display: inline-block;
+      padding: 6px 14px;
+      border: 1px solid rgba(139,99,71,0.3);
+      border-radius: 2px;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--terra);
+    }
+
+    /* CRITERIA */
+    #criteria { background: var(--stone); color: var(--sand); }
+    #criteria h2 { color: var(--sand); }
+    #criteria h2 em { color: var(--terra-light); }
+    #criteria .section-label { color: var(--terra-light); }
+    .criteria-lead {
+      font-size: 19px;
+      color: rgba(245,240,232,0.75);
+      max-width: 620px;
+      margin-bottom: 56px;
+      font-weight: 300;
+      line-height: 1.65;
+    }
+    .criteria-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 32px;
+    }
+    .criteria-card {
+      padding: 32px;
+      border: 1px solid rgba(245,240,232,0.1);
+      border-radius: 2px;
+      background: rgba(245,240,232,0.04);
+      transition: background 0.2s;
+    }
+    .criteria-card:hover { background: rgba(245,240,232,0.07); }
+    .criteria-card-icon { font-size: 22px; margin-bottom: 16px; }
+    .criteria-card h3 {
+      font-family: 'Lora', serif;
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--sand);
+      margin-bottom: 10px;
+    }
+    .criteria-card p {
+      font-size: 15px;
+      color: rgba(245,240,232,0.6);
+      line-height: 1.6;
+    }
+    .criteria-note {
+      margin-top: 56px;
+      padding: 28px 32px;
+      border-left: 3px solid var(--terra);
+      background: rgba(139,99,71,0.12);
+    }
+    .criteria-note p {
+      font-family: 'Lora', serif;
+      font-style: italic;
+      font-size: 18px;
+      color: rgba(245,240,232,0.85);
+      line-height: 1.65;
+    }
+
+    /* PROCESS */
+    #process { background: var(--sand); }
+    .process-steps {
+      display: flex; flex-direction: column; gap: 0;
+      margin-top: 16px;
+    }
+    .process-step {
+      display: grid;
+      grid-template-columns: 56px 1fr;
+      gap: 28px;
+      padding: 36px 0;
+      border-bottom: 1px solid rgba(44,42,38,0.1);
+      align-items: start;
+    }
+    .process-step:last-child { border-bottom: none; }
+    .step-num {
+      font-family: 'Lora', serif;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--terra);
+      padding-top: 4px;
+    }
+    .step-content h3 {
+      font-family: 'Lora', serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--stone);
+      margin-bottom: 8px;
+    }
+    .step-content p { color: var(--text-muted); font-size: 16px; }
+
+    /* CONTACT */
+    #contact { background: var(--warm-white); }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .contact-left p { color: var(--text-muted); font-size: 17px; margin-bottom: 20px; }
+    .contact-direct {
+      margin-top: 36px;
+      padding-top: 36px;
+      border-top: 1px solid rgba(44,42,38,0.1);
+    }
+    .contact-direct-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+    .contact-direct a {
+      color: var(--stone);
+      text-decoration: none;
+      font-family: 'Lora', serif;
+      font-size: 18px;
+      font-weight: 600;
+      border-bottom: 1px solid var(--terra-light);
+    }
+    form { display: flex; flex-direction: column; gap: 18px; }
+    .form-group { display: flex; flex-direction: column; gap: 6px; }
+    label {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+    input, select, textarea {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      padding: 12px 16px;
+      border: 1px solid rgba(44,42,38,0.18);
+      border-radius: 2px;
+      background: var(--warm-white);
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.2s;
+      width: 100%;
+    }
+    input:focus, select:focus, textarea:focus { border-color: var(--terra); }
+    textarea { resize: vertical; min-height: 120px; }
+    .form-submit { margin-top: 6px; width: fit-content; }
+    .form-status {
+      font-size: 14px;
+      margin-top: 8px;
+    }
+    .form-status-success { color: var(--moss); }
+    .form-status-error { color: #a33; }
+
+    /* FOOTER */
+    footer {
+      background: var(--stone);
+      padding: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .footer-logo { display: block; }
+    .footer-logo img {
+      height: 32px;
+      width: auto;
+      filter: brightness(0) invert(1);
+      opacity: 0.85;
+    }
+    footer p {
+      font-size: 13px;
+      color: rgba(245,240,232,0.45);
+    }
+    footer a {
+      color: rgba(245,240,232,0.6);
+      text-decoration: none;
+      font-size: 13px;
+      transition: color 0.2s;
+    }
+    footer a:hover { color: var(--terra-light); }
+
+    /* ANIMATIONS */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .hero-inner > * { animation: fadeUp 0.7s ease both; }
+    .hero-eyebrow { animation-delay: 0.1s; }
+    h1 { animation-delay: 0.22s; }
+    .hero-sub { animation-delay: 0.34s; }
+    .btn-group { animation-delay: 0.46s; }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      nav { padding: 16px 24px; }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 77px;
+        left: 0;
+        right: 0;
+        background: rgba(253,250,245,0.97);
+        flex-direction: column;
+        gap: 0;
+        padding: 12px 24px 24px;
+        border-bottom: 1px solid rgba(139,99,71,0.1);
+      }
+      .nav-links.nav-open { display: flex; }
+      .nav-links li { width: 100%; }
+      .nav-links a { display: block; padding: 12px 0; }
+      .nav-toggle { display: flex; }
+      section { padding: 72px 24px; }
+      .hero { padding: 100px 24px 64px; min-height: auto; }
+      .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+      footer { padding: 36px 24px; flex-direction: column; align-items: flex-start; }
+    }
+  </style>
 </head>
 <body>
 
-    <!-- Navigation -->
-    <nav id="nav" class="nav">
-        <div class="nav-container">
-            <a href="#hero" class="nav-logo"><img src="Photos/TRC Logo (Transparent).png" alt="Turtle Rock Co. Logo" class="nav-logo-icon">Turtle Rock Co.</a>
-            <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            <ul class="nav-links">
-                <li><a href="#mission">Mission</a></li>
-                <li><a href="#criteria">Criteria</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact" class="nav-cta">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
+<!-- NAV -->
+<nav id="nav">
+  <a class="nav-logo" href="#hero">
+    <img src="Photos/TRC Logo (Transparent).png" alt="Turtle Rock Co."/>
+  </a>
+  <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="#letter">Our Approach</a></li>
+    <li><a href="#about">About Andrew</a></li>
+    <li><a href="#criteria">What We Look For</a></li>
+    <li><a href="#contact">Get in Touch</a></li>
+  </ul>
+</nav>
 
-    <!-- Hero -->
-    <section id="hero" class="hero">
-        <div class="hero-overlay"></div>
-        <div class="container">
-            <div class="hero-content">
-                <p class="hero-eyebrow">Turtle Rock Co.</p>
-                <h1 class="hero-headline">Acquiring one exceptional business for the long term.</h1>
-                <p class="hero-subheadline">A permanent ownership vehicle. One business. Long-term stewardship.</p>
-                <div class="hero-ctas">
-                    <a href="#contact" class="btn btn-primary">Get in Touch</a>
-                    <a href="#mission" class="btn btn-secondary">Learn More</a>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- HERO -->
+<section id="hero" class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Turtle Rock Co.</div>
+    <h1>Acquiring great businesses.<br><em>Building for the long term.</em></h1>
+    <p class="hero-sub">
+      I'm looking to acquire one exceptional business and run it with care. Not flip it, not strip it.
+      If you've spent years building something great and wonder what comes next, I'd like to have that conversation.
+    </p>
+    <div class="btn-group">
+      <a href="#contact" class="btn btn-primary">Start a Conversation</a>
+      <a href="#letter" class="btn btn-outline">Read Our Approach</a>
+    </div>
+  </div>
+</section>
 
-    <!-- Mission -->
-    <section id="mission" class="section section-alt">
-        <div class="container container-narrow">
-            <h2 class="section-heading">Our Mission</h2>
-            <p class="section-body">Turtle Rock Co. is building toward the acquisition of a single high-quality business to own and operate for the long term.</p>
-            <p class="section-body">This initiative reflects a permanent ownership mindset. The goal is not a short-term hold or financial engineering strategy, but to carry forward the legacy a founder has built through disciplined stewardship, operational care, and long-term growth.</p>
-            <p class="section-body">We believe great businesses deserve owners who are committed to their continued success — not a transaction timeline.</p>
-        </div>
-    </section>
+<!-- LETTER TO FOUNDERS -->
+<section id="letter">
+  <div class="section-inner">
+    <div class="section-label">A note to founders</div>
+    <h2>What this isn't — and what it <em>is</em></h2>
+    <div class="divider"></div>
+    <div class="letter-body">
+      <p>
+        Most of what lands in a business owner's inbox sounds the same. Someone promising "a seamless exit,"
+        throwing around multiples, and pushing you toward a decision you're not ready to make.
+        That's not what I do.
+      </p>
+      <p>
+        I started my career in a technology startup, where I learned how businesses actually operate from the inside.
+        I later moved into private equity, where I sat across from founders navigating some of the biggest decisions
+        of their lives. The transitions that went well had one thing in common: the founder and the buyer saw eye-to-eye
+        and took the time to build a real relationship before anything was signed. That's the standard I hold myself to.
+      </p>
+      <p>
+        I'm an individual, not a fund. My goal is to find one well-run business in a focused service vertical
+        and operate it with the same care the original owner put in. Long-term stewardship,
+        not a short-term hold.
+      </p>
+      <p>
+        I'm not here to sell it in three years or squeeze every dollar out of it before moving on.
+        I want to run it, grow it, and take care of the people who depend on it.
+      </p>
+      <div class="letter-sig">
+        Andrew Knoell
+        <span>Founder, Turtle Rock Co.</span>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- Criteria -->
-    <section id="criteria" class="section">
-        <div class="container container-narrow">
-            <h2 class="section-heading">What We Look For</h2>
-            <p class="section-body">We seek one durable, profitable business with the following characteristics:</p>
-            <ul class="criteria-list">
-                <li>Consistent, defensible cash flow</li>
-                <li>Strong customer relationships and recurring demand</li>
-                <li>Honest financial reporting</li>
-                <li>Opportunity for operational improvement and long-term growth</li>
-                <li>U.S. based</li>
-            </ul>
-            <p class="section-body section-body-muted">We prioritize confidentiality, a thoughtful transition, and preserving the legacy built by long-term owners.</p>
-            <div class="section-cta">
-                <a href="#contact" class="btn btn-primary">Share an Opportunity</a>
-            </div>
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-inner">
+    <div class="section-label">About Andrew</div>
+    <h2>A background built for <em>this</em></h2>
+    <div class="divider"></div>
+    <div class="about-grid">
+      <div class="about-photo-wrap">
+        <img src="Photos/Linkedin Face Shot.jpeg" alt="Andrew Knoell"/>
+        <p class="about-photo-caption">Andrew Knoell · Founder, Turtle Rock Co.</p>
+      </div>
+      <div class="about-content">
+        <p>
+          My career has lived at the intersection of technology, sales, and finance. These are areas where the
+          difference between a good outcome and a bad one usually comes down to whether you understand
+          people as well as you understand the numbers.
+        </p>
+        <p>
+          In sales, I learned how to listen before I speak and how to earn trust without rushing it.
+          In tech, I learned how operations actually work: where the leverage is, where the friction hides,
+          and how to make a team better without breaking what's already working.
+        </p>
+        <p>
+          In finance and deal work, I sat across from founders at pivotal moments. I watched them try to figure out
+          who they could trust with what they'd built. I took notes on what they needed, not just
+          in the transaction, but in the years that followed.
+        </p>
+        <p>
+          Now I'm on the other side of that table. Not as an advisor. As a buyer who intends to be the operator.
+          Someone who will show up every day and take the business forward the way you'd want it taken.
+        </p>
+        <div class="about-tags">
+          <span class="tag">Technology</span>
+          <span class="tag">Sales &amp; Revenue</span>
+          <span class="tag">Deal Sourcing &amp; Evaluation</span>
+          <span class="tag">Operations</span>
+          <span class="tag">Long-Term Stewardship</span>
         </div>
-    </section>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- About -->
-    <section id="about" class="section section-alt">
-        <div class="container">
-            <h2 class="section-heading">About Turtle Rock Co.</h2>
-            <div class="about-layout">
-                <div class="about-photo">
-                    <div class="photo-placeholder" id="headshot-container">
-                        <img src="Photos/Linkedin Face Shot.jpeg" alt="Andrew Knoell" class="headshot" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                        <span class="photo-initials">AK</span>
-                    </div>
-                </div>
-                <div class="about-text">
-                    <p class="section-body">Turtle Rock Co. was founded with a clear purpose: to find and acquire one exceptional business and steward it for the long term.</p>
-                    <p class="section-body">With a background in private equity deal sourcing and evaluation, the founder brings a disciplined approach to identifying high-quality businesses — combined with a commitment to permanent ownership rather than short-term returns.</p>
-                    <p class="section-body">Our principles are straightforward:</p>
-                    <ul class="principles-list">
-                        <li>Integrity</li>
-                        <li>Discipline</li>
-                        <li>Long-term alignment</li>
-                    </ul>
-                </div>
-            </div>
+<!-- CRITERIA -->
+<section id="criteria">
+  <div class="section-inner">
+    <div class="section-label">What We Look For</div>
+    <h2>The kind of business <em>we're built for</em></h2>
+    <div class="divider" style="background: var(--terra-light);"></div>
+    <p class="criteria-lead">
+      We're not looking for a turnaround or a fixer-upper. We're looking for a business that works,
+      one built by someone who cared enough to do it right.
+    </p>
+    <div class="criteria-grid">
+      <div class="criteria-card">
+        <div class="criteria-card-icon">🏛️</div>
+        <h3>Established and Stable</h3>
+        <p>Ten or more years in operation, with a track record that speaks for itself. Longevity signals reputation.</p>
+      </div>
+      <div class="criteria-card">
+        <div class="criteria-card-icon">🤝</div>
+        <h3>Owner-Operated</h3>
+        <p>Built and run by the founder. No institutional capital, no PE backing. The kind of business where the owner's reputation is on the line every day.</p>
+      </div>
+      <div class="criteria-card">
+        <div class="criteria-card-icon">💧</div>
+        <h3>Consistent Cash Flow</h3>
+        <p>Defensible revenue, recurring demand, and honest financials. We don't need explosive growth. We need something real and durable.</p>
+      </div>
+      <div class="criteria-card">
+        <div class="criteria-card-icon">🌱</div>
+        <h3>Meaningful Customer Relationships</h3>
+        <p>Customers who come back. Relationships built on trust and service, not contracts and price pressure.</p>
+      </div>
+      <div class="criteria-card">
+        <div class="criteria-card-icon">🇺🇸</div>
+        <h3>U.S. Based</h3>
+        <p>We operate nationally and welcome conversations from business owners across the country.</p>
+      </div>
+      <div class="criteria-card">
+        <div class="criteria-card-icon">🔒</div>
+        <h3>Full Confidentiality</h3>
+        <p>Every conversation is completely private. We handle the transition with discretion and care, for you, your employees, and your customers.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="section-inner">
+    <div class="section-label">What to Expect</div>
+    <h2>A process built around <em>you</em></h2>
+    <div class="divider"></div>
+    <div class="process-steps">
+      <div class="process-step">
+        <div class="step-num">01</div>
+        <div class="step-content">
+          <h3>A straightforward conversation</h3>
+          <p>The first step is getting to know each other. No pitch, no pressure. I want to understand your business, what you've built, and what matters to you about what comes next.</p>
         </div>
-    </section>
-
-    <!-- Contact -->
-    <section id="contact" class="section section-dark">
-        <div class="container container-narrow">
-            <h2 class="section-heading section-heading-light">Contact</h2>
-            <p class="section-intro section-intro-light">If you are a business owner considering a transition, or an advisor representing a client, we welcome a conversation.</p>
-            <form id="contact-form" class="contact-form">
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="company">Company</label>
-                        <input type="text" id="company" name="company">
-                    </div>
-                    <div class="form-group">
-                        <label for="type">I represent</label>
-                        <select id="type" name="type">
-                            <option value="" disabled selected>Select one</option>
-                            <option value="business-owner">I am a business owner</option>
-                            <option value="broker">I am a broker / advisor</option>
-                            <option value="other">Other</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-group form-group-full">
-                    <label for="message">Message</label>
-                    <textarea id="message" name="message" rows="5"></textarea>
-                </div>
-                <button type="submit" class="btn btn-submit">Send Message</button>
-                <div id="form-status" class="form-status" aria-live="polite"></div>
-            </form>
-            <div class="contact-alt">
-                <p>Or reach us directly at <a href="mailto:andrew@turtlerockcompanies.com">andrew@turtlerockcompanies.com</a></p>
-            </div>
+      </div>
+      <div class="process-step">
+        <div class="step-num">02</div>
+        <div class="step-content">
+          <h3>Mutual fit, mutual readiness</h3>
+          <p>I'm actively looking to acquire, which means I need owners who are genuinely ready to have that conversation. I'm not here to pressure anyone, but I'm also not in a position to wait years. If the timing is wrong, I'll say so honestly.</p>
         </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p class="footer-brand">Turtle Rock Co.</p>
-            <p class="footer-tagline">Long-Term Acquisition</p>
-            <p class="footer-copy">&copy; <span id="year"></span> Turtle Rock Co.</p>
-            <nav class="footer-nav">
-                <a href="#contact">Contact</a>
-            </nav>
+      </div>
+      <div class="process-step">
+        <div class="step-num">03</div>
+        <div class="step-content">
+          <h3>Transparency throughout</h3>
+          <p>No games, no bait and switch. You'll know exactly where we stand, what we can offer, and how a transition would work before you ever have to commit to anything.</p>
         </div>
-    </footer>
+      </div>
+      <div class="process-step">
+        <div class="step-num">04</div>
+        <div class="step-content">
+          <h3>A real transition plan, built together</h3>
+          <p>Whether you stay involved for a year or hand over the keys on day one, we'll structure a transition that works for you, your team, and your customers.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <script src="script.js"></script>
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-inner">
+    <div class="section-label">Get in Touch</div>
+    <h2>Let's have a <em>real conversation</em></h2>
+    <div class="divider"></div>
+    <div class="contact-grid">
+      <div class="contact-left">
+        <p>
+          If you're a business owner thinking about what comes next — even just starting to think about it —
+          I'd genuinely love to hear from you.
+        </p>
+        <p>
+          There's no obligation in reaching out. I'm not going to pressure you into anything.
+          The best acquisitions start with trust, and trust starts with a conversation.
+        </p>
+        <p>
+          If you'd prefer to just send a note directly, my inbox is always open.
+        </p>
+        <div class="contact-direct">
+          <div class="contact-direct-label">Direct Email</div>
+          <a href="mailto:andrew@turtlerockcompanies.com">andrew@turtlerockcompanies.com</a>
+        </div>
+      </div>
+      <div>
+        <form id="contact-form">
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" placeholder="First and last name" required/>
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="you@yourbusiness.com" required/>
+          </div>
+          <div class="form-group">
+            <label for="company">Business Name (optional)</label>
+            <input type="text" id="company" name="company" placeholder="Your business"/>
+          </div>
+          <div class="form-group">
+            <label for="type">I am a</label>
+            <select id="type" name="type">
+              <option value="" disabled selected>Select one</option>
+              <option value="business-owner">Business Owner</option>
+              <option value="broker">Advisor / Broker</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Your Message</label>
+            <textarea id="message" name="message" placeholder="Tell me a bit about your business or what's on your mind. No need to be formal."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary form-submit">Send Message</button>
+          <div id="form-status" class="form-status" aria-live="polite"></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <a class="footer-logo" href="#hero">
+    <img src="Photos/TRC Logo (Transparent).png" alt="Turtle Rock Co."/>
+  </a>
+  <p>&copy; <span id="year"></span> Turtle Rock Co. &nbsp;·&nbsp; Long-Term Acquisition &amp; Stewardship</p>
+  <a href="mailto:andrew@turtlerockcompanies.com">andrew@turtlerockcompanies.com</a>
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>
